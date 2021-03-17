@@ -1,0 +1,67 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 4eadbd7b4163af51518faab1d18ae811c127929b0490d1896efaf0ae6549bb25
+
+name:           go-fish
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/go-fish#readme>
+homepage:       https://github.com/githubuser/go-fish#readme
+bug-reports:    https://github.com/githubuser/go-fish/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2021 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/go-fish
+
+library
+  exposed-modules:
+      GameLogic
+      Lib
+  other-modules:
+      Paths_go_fish
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , random
+    , split
+  default-language: Haskell2010
+
+executable go-fish-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_go_fish
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , go-fish
+    , random
+  default-language: Haskell2010
+
+test-suite go-fish-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_go_fish
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , go-fish
+    , random
+  default-language: Haskell2010
