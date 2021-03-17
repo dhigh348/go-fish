@@ -31,6 +31,7 @@ checkGoFish :: Card -> Hand -> Bool
 checkGoFish (Card val suit) (Hand cs) = any (\(Card v s) -> v==val && s==suit) cs 
 
 -- draw a card
+-- when adding in Monad functionality will focus on threading pile and hands in State
 drawCard :: Bool -> GamePlay -> GamePlay
 drawCard True (GamePlay (Hand cs) cpu (DiscardPile (d:ds)) (DrawPile [])) = GamePlay (Hand (d:cs)) cpu (DiscardPile []) (DrawPile ds)
 drawCard False (GamePlay user (Hand cs) (DiscardPile (d:ds)) (DrawPile [])) = GamePlay user (Hand (d:cs)) (DiscardPile []) (DrawPile ds)
